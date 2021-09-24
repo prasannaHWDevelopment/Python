@@ -3,12 +3,12 @@ import numpy as np
 
 plt.style.use('seaborn-poster')
 %matplotlib inline
-# sampling rate
-sr = 2000
-# sampling interval
-ts = 1.0/sr
-t = np.arange(0,1,ts)
-
+# Sampling Rate
+s_r = 2000
+# Sampling Interval
+t_s = 1.0/s_r
+t = np.arange(0,1,t_s)
+% FRequencies of the signal 
 freq = 1000.234
 x = 3*np.sin(2*np.pi*freq*t)
 
@@ -18,7 +18,7 @@ x += np.sin(2*np.pi*freq*t)
 freq = 7000   
 x += 0.5* np.sin(2*np.pi*freq*t)
 
-plt.figure(figsize = (8, 6))
+plt.figure(figsize = (10, 8))
 plt.plot(t, x, 'r')
 plt.ylabel('Amplitude')
 
@@ -29,10 +29,10 @@ from numpy.fft import fft, ifft
 X = fft(x)
 N = len(X)
 n = np.arange(N)
-T = N/sr
+T = N/s_r
 freq = n/T 
 
-plt.figure(figsize = (12, 6))
+plt.figure(figsize = (14, 8))
 plt.subplot(121)
 
 plt.stem(freq, np.abs(X), 'b', \
